@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:  
+  name: wso2am-single-node-am-ingress
+  namespace: default  
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: demo.wso2
+    http:
+      paths:
+      - backend:
+          service:
+            name: wso2am-single-node-am-service
+            port:
+              number: 9443
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - demo.wso2
+status:
+  loadBalancer:
+    ingress:
+    - hostname: localhost    
