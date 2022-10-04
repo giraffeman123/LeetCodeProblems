@@ -11,7 +11,7 @@ app.get('/middleNode/:nodeToReturn', async(req,res) => {
 });
 
 app.get('/sort-linked-list',async(req,res) =>{
-    var arr1 = [4,2,1,3];
+    var arr1 = [4];
     var head = listFromArray(arr1);
 
     res.status(200).json(sortList(head));
